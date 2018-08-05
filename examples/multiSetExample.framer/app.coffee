@@ -63,16 +63,13 @@ storyPlaceholder4.x = ( storyPlaceholder4.x + 190 )
 {StoryComponent} = require "StoryComponent"
 
 exampleSet1 = new StoryComponent
-	stories: ["", ""]
-	timePerStory: 1
+	stories: ["images/locutus1.png", "images/locutus2.png"]
 
 exampleSet2 = new StoryComponent
-	stories: [""]
-	timePerStory: 1
+	stories: ["images/jason1.png"]
 
 exampleSet3 = new StoryComponent
-	stories: ["", "", ""]
-	timePerStory: 1
+	stories: ["images/andrea1.png", "images/andrea2.png", "images/andrea3.png"]
 
 # Setup stories display
 

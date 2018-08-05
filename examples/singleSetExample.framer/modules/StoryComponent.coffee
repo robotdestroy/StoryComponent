@@ -138,7 +138,7 @@ class exports.StoryComponent extends Layer
 			# For one update create full width segment
 			@_story1 = new Layer
 				backgroundColor: Utils.randomColor()
-				image: @options.stories[number]
+				image: @options.stories[0]
 				width: Screen.width
 				height: Screen.height
 				x: 0
@@ -239,4 +239,3 @@ class exports.StoryComponent extends Layer
 	_resetStoriesPlayback: ->
 		@_progressBarHolderAnimation.finish()
 		@_progressBarHolderAnimation.reset()
-		@_authorStoryHolder.x = 0
