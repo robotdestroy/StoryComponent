@@ -28,7 +28,7 @@ description = new TextLayer
 	parent: cardBackground
 linkURL = new TextLayer
 	x: Align.center
-	y: 556
+	y: 542
 	width: Screen.width - 72
 	text: "Learn More"
 	fontSize: 15
@@ -59,15 +59,19 @@ storyPlaceholder2.x = ( storyPlaceholder2.x - 95 )
 storyPlaceholder3.x = ( storyPlaceholder3.x + 95 )
 storyPlaceholder4.x = ( storyPlaceholder4.x + 190 )
 
+# Variables
+
+singleSwipe = 0
+
 {StoryComponent} = require "StoryComponent"
 
 exampleSet = new StoryComponent
 	progressBarHorizontalPadding: 12
 	progressBarVerticalPadding: 12
 	progressBarHeight: 4
-	progressBarGradient: true
+	progressBarGradient: false
 	timePerStory: 3
-	stories: ["images/_x_link_small.png", "images/_x_link_med.png", "images/_x_link_large%20copy%202.png"]
+	stories: ["images/andrea1.png", "images/andrea2.png", "images/andrea3.png"]
 
 # Setup story display
 
@@ -77,6 +81,7 @@ exampleSet.clip = true
 exampleSet.shadowY = 8
 exampleSet.shadowBlur = 60
 exampleSet.shadowColor = "rgba(0,0,0,0.3)"
+
 
 # Story viewer states
 
@@ -115,8 +120,6 @@ cardBackground.animationOptions =
 
 # Start story action
 
-singleSwipe = 0
-
 storyHit = new Layer
 	width: 80
 	height: 80
@@ -145,6 +148,7 @@ Screen.on Events.EdgeSwipeBottom, (event) ->
 	if singleSwipe == 0
 		exampleSet.animate("small")
 		cardBackground.animate("active")
+		exampleSet._stopStoriesPlayback()
 		exampleSet._resetStoriesPlayback()
 		exampleSet._endOfUpdatesEvent.x = 0
 		storyHit.scale = 1

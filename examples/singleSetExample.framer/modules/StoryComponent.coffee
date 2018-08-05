@@ -20,7 +20,7 @@ class exports.StoryComponent extends Layer
 			progressBarVerticalPadding: 12
 			progressBarHeight: 4
 			progressBarGradient: true
-			timePerStory: 4
+			timePerStory: 3
 			stories: [""]
 
 		super @options
@@ -239,3 +239,4 @@ class exports.StoryComponent extends Layer
 	_resetStoriesPlayback: ->
 		@_progressBarHolderAnimation.finish()
 		@_progressBarHolderAnimation.reset()
+		@_authorStoryHolder.x = 0
