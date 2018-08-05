@@ -1,7 +1,7 @@
 ###
 	# Story Component
 
-	# Example
+	# Example usage
 	{StoryComponent} = require "StoryComponent"
 	exampleSet = new StoryComponent
 		progressBarHorizontalPadding: 12
@@ -10,6 +10,20 @@
 		progressBarGradient: true
 		timePerStory: 3
 		stories: [ "images/1.png", "images/2.png", "images/3.png" ]
+
+	# Listen for story completion event
+	example._endOfUpdatesEvent.on "change:x", ->
+		if example._endOfUpdatesEvent.x == 1
+
+	# Start story playback
+	example._startStoriesPlayback()
+
+	# Stop story playback
+	example._stopStoriesPlayback()
+	
+	# Reset story playback
+	example._resetStoriesPlayback()
+
 ###
 
 class exports.StoryComponent extends Layer

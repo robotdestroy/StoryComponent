@@ -234,15 +234,12 @@ Screen.on Events.EdgeSwipeBottom, (event) ->
 	if ( ( singleSwipe == 0 ) && ( setsContainer.x == 0 ) )
 		exampleSet1.animate("small")
 		cardBackground.animate("active")
-		exampleSet1._resetStoriesPlayback()
 		exampleSet1._endOfUpdatesEvent.x = 0
-		exampleSet1.states.switchInstant "small"
 		storyHit.scale = 1
 		singleSwipe = 1
 	if ( ( singleSwipe == 0 ) && ( setsContainer.x == -Screen.width ) )
 		exampleSet2.animate("small")
 		cardBackground.animate("active")
-		exampleSet2._resetStoriesPlayback()
 		exampleSet2._endOfUpdatesEvent.x = 0
 		exampleSet1.states.switchInstant "small"
 		storyHit.scale = 1
