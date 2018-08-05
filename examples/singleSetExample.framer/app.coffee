@@ -9,30 +9,30 @@ cardBackground.sendToBack()
 
 title = new TextLayer
 	x: Align.center
-	y: 237
+	y: 192
 	width: Screen.width - 60
 	text: "StoryComponent"
-	fontSize: 35
+	fontSize: 36
 	fontWeight: 800
 	textAlign: "center"
 	color: "#222"
 	parent: cardBackground
 description = new TextLayer
 	x: Align.center
-	y: 310
-	width: Screen.width - 72
-	text: "Tap the circle above to launch a set of stories. Tap the right of a story to advance the set or tap the left side to go backward.\r\n \r\n You can swipe up from the bottom at any time to exit the story or you will automatically return at the end of the set.\r\n \r\n To create a StoryComponent you need to initialize it with an array of images or videos. To start it's playback, you must call the start function. You can also listen for the conclusion of the set to trigger animations."
-	fontSize: 15
+	y: 278
+	width: Screen.width - 68
+	text: "Tap the circle above to a set of stories. Tap the right of a story to advance or tap the left side to go backward.\r\n \r\n You can swipe up from the bottom at any time to exit the story or you will automatically return at the end of the set.\r\n \r\n To create a StoryComponent, initialize it with an array of images or videos. Begin playback by calling the start function."
+	fontSize: 16
 	fontWeight: 400
 	textAlign: "center"
 	parent: cardBackground
 linkURL = new TextLayer
 	x: Align.center
-	y: 580
+	y: 556
 	width: Screen.width - 72
 	text: "Learn More"
 	fontSize: 15
-	fontWeight: 600
+	fontWeight: 500
 	color: "#007AFF"
 	textAlign: "center"
 	parent: cardBackground
@@ -41,7 +41,7 @@ linkURL.onTap ->
 	window.open('https://github.com/robotdestroy/StoryComponent', '_new')
 
 storyPlaceholder1 = new Layer
-	y: 87
+	y: 56
 	x: Align.center
 	width: 82
 	height: 82
@@ -81,7 +81,7 @@ exampleSet.shadowColor = "rgba(0,0,0,0.3)"
 # Story viewer states
 
 exampleSet.states.small =
-	y: -60
+	y: -90
 	scale: 0.22
 	height: Screen.width
 	borderRadius: Screen.width/2
@@ -92,14 +92,26 @@ exampleSet.states.large =
 	y: 0
 	scale: 1
 	height: Screen.height
-	borderRadius: 0
-	borderColor: "#fff"
+	borderRadius: 12
+	borderColor: "#000"
 	borderWidth: 0
 
+cardBackground.states.active =
+	scale: 1
+	brightness: 100
+
+cardBackground.states.inactive =
+	scale: 0.90
+	brightness: 80
+
 exampleSet.states.switchInstant "small"
+cardBackground.states.switchInstant "active"
 
 exampleSet.animationOptions =
-	curve: "spring(230,26,7)"
+	curve: "spring(230,28,7)"
+	
+cardBackground.animationOptions =
+	curve: "spring(230,28,7)"
 
 # Start story action
 
@@ -109,12 +121,13 @@ storyHit = new Layer
 	width: 80
 	height: 80
 	x: 147
-	y: 87
+	y: 58
 	opacity: 0
 
 storyHit.onClick ->
 	storyHit.scale = 0
 	exampleSet.animate("large")
+	cardBackground.animate("inactive")
 	exampleSet._startStoriesPlayback()
 	singleSwipe = 0
 
@@ -123,6 +136,7 @@ storyHit.onClick ->
 exampleSet._endOfUpdatesEvent.on "change:x", ->
 	if exampleSet._endOfUpdatesEvent.x == 1
 		exampleSet.animate("small")
+		cardBackground.animate("active")
 		storyHit.scale = 1
 		exampleSet._resetStoriesPlayback()
 		exampleSet._endOfUpdatesEvent.x = 0
@@ -130,6 +144,7 @@ exampleSet._endOfUpdatesEvent.on "change:x", ->
 Screen.on Events.EdgeSwipeBottom, (event) ->
 	if singleSwipe == 0
 		exampleSet.animate("small")
+		cardBackground.animate("active")
 		exampleSet._resetStoriesPlayback()
 		exampleSet._endOfUpdatesEvent.x = 0
 		storyHit.scale = 1
