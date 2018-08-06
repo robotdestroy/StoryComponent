@@ -162,6 +162,7 @@ exampleSet2.states.switchInstant "large"
 exampleSet3.states.switchInstant "large"
 cardBackground.states.switchInstant "active"
 
+exampleSet1.x = 0
 exampleSet1.parent = setsContainer
 exampleSet2.x = Screen.width
 exampleSet2.parent = setsContainer
@@ -192,8 +193,6 @@ storyHit.onClick ->
 	storyHit.scale = 0
 	exampleSet1.animate("large")
 	cardBackground.animate("inactive")
-	exampleSet2.states.switchInstant "large"
-	exampleSet3.states.switchInstant "large"
 	exampleSet1._startStoriesPlayback()
 	singleSwipe = 0
 	setsContainer.x = 0
@@ -203,6 +202,7 @@ storyHit.onClick ->
 exampleSet1._endOfUpdatesEvent.on "change:x", ->
 	if exampleSet1._endOfUpdatesEvent.x == 1
 		exampleSet1._endOfUpdatesEvent.x = 0
+		exampleSet2.states.switchInstant "large"
 		exampleSet2._startStoriesPlayback()
 		setsContainer.animate
 			properties:
@@ -212,6 +212,7 @@ exampleSet1._endOfUpdatesEvent.on "change:x", ->
 exampleSet2._endOfUpdatesEvent.on "change:x", ->
 	if exampleSet2._endOfUpdatesEvent.x == 1
 		exampleSet2._endOfUpdatesEvent.x = 0
+		exampleSet3.states.switchInstant "large"
 		exampleSet3._startStoriesPlayback()
 		setsContainer.animate
 			properties:
@@ -247,8 +248,7 @@ Screen.on Events.EdgeSwipeBottom, (event) ->
 	if ( ( singleSwipe == 0 ) && ( setsContainer.x == ( -2 * Screen.width ) ) )
 		exampleSet3.animate("small")
 		cardBackground.animate("active")
-		exampleSet3._resetStoriesPlayback()
 		exampleSet3._endOfUpdatesEvent.x = 0
-		exampleSet1.states.switchInstant "small"
+		exampleSet2.states.switchInstant "small"
 		storyHit.scale = 1
 		singleSwipe = 1
