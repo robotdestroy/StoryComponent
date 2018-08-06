@@ -85,7 +85,5 @@ You can reset the story set using:
 example._resetStoriesPlayback()
 ```
 
-## Examples
-- [Simple Example](tbd)
-- [Single Set Example](tbd)
-- [Multi Set Example](tbd)
+## Demo Video
+- [YouTube](https://www.youtube.com/watch?v=YoTI_EC1he8)
