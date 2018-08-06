@@ -123,7 +123,7 @@ class exports.StoryComponent extends Layer
 			authorProgress = Utils.modulate(this.width, [0, progressBarHolderInitialWidth], [0, 1])
 			for number in [0...numberOfUpdates]
 				if ( ( progressBarHolderForLoop.width < ( progressBarHolderInitialWidth * ( number + 1 ) ) ) && ( progressBarHolderForLoop.width > ( progressBarHolderInitialSectionWidthForLoop * ( number ) ) ) )
-					currentStoryOfAuthor = number + 1
+					# currentStoryOfAuthor = number + 1
 					authorStoryHolder.x = ( - Screen.width * number )
 
 		# Generate stories and progress bar sections
