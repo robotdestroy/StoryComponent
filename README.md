@@ -11,7 +11,7 @@ exampleSet = new StoryComponent
 	stories: [ "images/1.png", "images/2.png", "images/3.png" ]
 ```
 
-The component will rescale to any device size automatically. You can customize the component.
+The component will rescale to any device size automatically. There are also a number of variables you can customize in the component.
 
 ## Example Usage
 ```coffee
@@ -32,7 +32,7 @@ Define the horizontal padding of the progress bar:
 progressBarHorizontalPadding: <int>
 ```
 
-Define the verticall padding of the progress bar:
+Define the vertical padding of the progress bar:
 
 ```coffee
 progressBarVerticalPadding: <int>
@@ -44,7 +44,7 @@ Define the height of the progress bar:
 progressBarHeight: <int>
 ```
 
-Define where there is a gradient behind progress bar:
+Define if there is a gradient behind progress bar:
 
 ```coffee
 progressBarGradient: <bool>
@@ -58,15 +58,16 @@ timePerStory: <int>
 ```
 
 ## Listener
-You can listen for the completion of a story set using:
+You can listen for the completion of a set of stories using:
 
 ```coffee
 example._endOfUpdatesEvent.on "change:x", ->
 	if example._endOfUpdatesEvent.x == 1
+		print "End of stories"
 ```
 
 ## Actions
-You can start the story set playback using:
+You can start the playback of a set of stories using:
 
 ```coffee
 example._startStoriesPlayback()
