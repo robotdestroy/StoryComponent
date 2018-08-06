@@ -29,32 +29,32 @@ exampleSet = new StoryComponent
 Define the horizontal padding of the progress bar:
 
 ```coffee
-	progressBarHorizontalPadding:
+progressBarHorizontalPadding: <int>
 ```
 
 Define the verticall padding of the progress bar:
 
 ```coffee
-	progressBarVerticalPadding:
+progressBarVerticalPadding: <int>
 ```
 
 Define the height of the progress bar:
 
 ```coffee
-	progressBarHeight:
+progressBarHeight: <int>
 ```
 
 Define where there is a gradient behind progress bar:
 
 ```coffee
-	progressBarGradient: <bool>
+progressBarGradient: <bool>
 ```
 
 ## Time
 Define the time each story is shown:
 
 ```coffee
-	timePerStory:
+timePerStory: <int>
 ```
 
 ## Listener
