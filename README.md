@@ -1,6 +1,6 @@
 # StoryComponent
 
-A generic story component for [Framer](https://framer.com/). The component can be called multiple times to create sequences of stories.
+A generic story component for [Framer](https://framer.com/). It displays full screen stories at a set interval. The component can be called multiple times to create sequences of stories.
 
 ## Example Usage
 The simpliest way to use StoryComponent is to import the module and define an array of images.
