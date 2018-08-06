@@ -13,7 +13,7 @@ exampleSet = new StoryComponent
 
 The component will rescale to any device size automatically. There are also a number of variables you can customize in the component.
 
-## Example Usage
+## Customization
 ```coffee
 {StoryComponent} = require "StoryComponent"
 exampleSet = new StoryComponent
