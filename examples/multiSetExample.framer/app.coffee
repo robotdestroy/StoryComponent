@@ -124,6 +124,7 @@ exampleSet2.states.small =
 	borderRadius: Screen.width/2
 	borderColor: "#fff"
 	borderWidth: 12
+	shadowColor: "rgba(0,0,0,0.3)"
 
 exampleSet2.states.large =
 	y: 0
@@ -132,6 +133,7 @@ exampleSet2.states.large =
 	borderRadius: 12
 	borderColor: "#000"
 	borderWidth: 0
+	shadowColor: "rgba(0,0,0,0)"
 
 exampleSet3.states.small =
 	y: -90
